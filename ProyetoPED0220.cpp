@@ -69,6 +69,53 @@ void agregarimportacion(vector<automovil> *autosImportacion){
 
 }
 
+void Importar(vector<automovil> *autosDisponibles, vector<automovil> *autosImportacion) {
+    bool encontrado = false;
+    unsigned posicion;
+    automovil importado;
+    cin.ignore();
+    cout<<endl<<"Ingresa las placas: ";
+    char placas[128];
+    cin.getline(placas, 128);
+    string placass(placas, cin.gcount() - 1);
+
+
+    for (unsigned i = 0; i < autosImportacion->size(); i++) {
+        automovil importado = autosImportacion->at(i);
+
+        if(importado.placa.compare(placass.substr(0, placass.size())) == 0) {
+            autosDisponibles->push_back(importado);
+            encontrado = true;
+            posicion = i;
+        }
+    }
+
+    if (encontrado) {
+        cout<<endl<<"Auto importado"<<endl;
+        autosImportacion->erase(autosImportacion->begin()+posicion);
+    } else {
+        cout<<endl<<"No se encontraron las placas del auto por importar"<<endl;
+    }
+}
+
+void Mostrarvendidos(const queue<automovil> *autosvendidos){
+    queue<automovil> Temporal =  *autosvendidos;
+    int ganancias = 0;
+
+    cout<<endl<<"Los autos vendidos son"<<endl;
+    while(!Temporal.empty()){
+        cout<<endl;
+        cout<<"Marca: " <<Temporal.back().marca <<endl;
+        cout<<"Placa: " <<Temporal.back().placa <<endl;
+        cout<<"Precio: $"<<Temporal.back().precio <<endl;
+        ganancias += Temporal.back().precio;
+        
+        Temporal.pop();
+    }
+
+    cout<<endl<<"Con una ganancia total de $"<<ganancias<<endl;
+}
+
 void Mostrardisponibles(vector<automovil> *autosDisponibles){
     vector<automovil> Temporal = *autosDisponibles;
     while(!Temporal.empty()){
