@@ -12,6 +12,63 @@ struct automovil{
 };typedef struct automovil Automovil;
 
 
+void agregardisponibles(vector<automovil> *autosDisponibles){
+    automovil nuevo;
+    bool status=true;
+    cin.ignore();
+    cout<<endl<<"Agregar marca del carro: "<<endl;
+    getline(cin, nuevo.marca);
+    cout<<"Agegar placas del carro: "<<endl;
+    cin>>nuevo.placa;
+    for (unsigned i = 0; i < autosDisponibles->size(); i++) {
+        if(autosDisponibles->at(i).placa == nuevo.placa) {
+            cout<<endl<<"Error, las placas " << nuevo.placa <<" ya existen!"<<endl;
+            return;
+        }
+    }
+    while(status){
+    cout<<"Agregar precio del carro: "<<endl;
+    cin>>nuevo.precio;
+    if(nuevo.precio<=0){
+        cout<<"Precio no valido!"<<endl;
+    }else{
+        status=false;
+    }
+    }
+    
+    autosDisponibles->push_back(nuevo);
+
+}
+
+void agregarimportacion(vector<automovil> *autosImportacion){
+    automovil nuevo;
+    bool status=true;
+    nuevo.precio=0;
+    cin.ignore();
+    cout<<endl<<"Agregar marca del carro: "<<endl;
+    getline(cin, nuevo.marca);
+    cout<<"Agegar placas del carro: "<<endl;
+    cin>>nuevo.placa;
+    for (unsigned i = 0; i < autosImportacion->size(); i++) {
+        if(autosImportacion->at(i).placa == nuevo.placa) {
+            cout<<endl<<"Error, las placas " << nuevo.placa <<" ya existen!"<<endl;
+            return;
+        }
+    }
+    while(status){
+    cout<<"Agregar precio del carro: "<<endl;
+    cin>>nuevo.precio;
+    if(nuevo.precio<=0){
+        cout<<"Precio no valido!"<<endl;
+    }else{
+        status=false;
+    }
+    }
+
+    autosImportacion->push_back(nuevo);
+
+}
+
 void Mostrardisponibles(vector<automovil> *autosDisponibles){
     vector<automovil> Temporal = *autosDisponibles;
     while(!Temporal.empty()){
