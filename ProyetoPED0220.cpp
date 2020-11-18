@@ -12,6 +12,33 @@ struct automovil{
 };typedef struct automovil Automovil;
 
 
+void Mostrardisponibles(vector<automovil> *autosDisponibles){
+    vector<automovil> Temporal = *autosDisponibles;
+    while(!Temporal.empty()){
+        cout<<endl;
+        cout<<"Marca: " <<Temporal.back().marca <<endl;
+        cout<<"Placa: " <<Temporal.back().placa <<endl;
+        cout<<"Precio: $"<<Temporal.back().precio <<endl;
+        
+
+        Temporal.pop_back(); 
+    }
+
+}
+
+void MostrarImportacion(vector<automovil> *autosImporacion){
+    vector<automovil> Temporal = *autosImporacion;
+    while(!Temporal.empty()){
+        cout<<endl;
+        cout<<"Marca: " <<Temporal.back().marca <<endl;
+        cout<<"Placa: " <<Temporal.back().placa <<endl;
+        cout<<"Precio: $"<<Temporal.back().precio <<endl;
+        
+
+        Temporal.pop_back(); 
+    }
+
+}
 
 
 bool verificar(vector<automovil> *ListaDeAutos, string placa1){
