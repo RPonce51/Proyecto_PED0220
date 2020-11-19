@@ -18,7 +18,7 @@ void agregardisponibles(vector<automovil> *autosDisponibles){
     cin.ignore();
     cout<<endl<<"Agregar marca del carro: "<<endl;
     getline(cin, nuevo.marca);
-    cout<<"Agegar placas del carro: "<<endl;
+    cout<<"Agregar placas del carro: "<<endl;
     cin>>nuevo.placa;
     for (unsigned i = 0; i < autosDisponibles->size(); i++) {
         if(autosDisponibles->at(i).placa == nuevo.placa) {
@@ -37,6 +37,7 @@ void agregardisponibles(vector<automovil> *autosDisponibles){
     }
     
     autosDisponibles->push_back(nuevo);
+    cout<<"Auto anadido con exito en la lista de disponibles"<<endl<<endl;
 
 }
 
@@ -47,7 +48,7 @@ void agregarimportacion(vector<automovil> *autosImportacion){
     cin.ignore();
     cout<<endl<<"Agregar marca del carro: "<<endl;
     getline(cin, nuevo.marca);
-    cout<<"Agegar placas del carro: "<<endl;
+    cout<<"Agregar placas del carro: "<<endl;
     cin>>nuevo.placa;
     for (unsigned i = 0; i < autosImportacion->size(); i++) {
         if(autosImportacion->at(i).placa == nuevo.placa) {
@@ -66,6 +67,7 @@ void agregarimportacion(vector<automovil> *autosImportacion){
     }
 
     autosImportacion->push_back(nuevo);
+    cout<<"Auto anadido con exito en la lista de importaciones"<<endl<<endl;
 
 }
 
