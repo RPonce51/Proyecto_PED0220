@@ -107,10 +107,10 @@ void Mostrarvendidos(const queue<automovil> *autosvendidos){
     cout<<endl<<"Los autos vendidos son"<<endl;
     while(!Temporal.empty()){
         cout<<endl;
-        cout<<"Marca: " <<Temporal.back().marca <<endl;
-        cout<<"Placa: " <<Temporal.back().placa <<endl;
-        cout<<"Precio: $"<<Temporal.back().precio <<endl;
-        ganancias += Temporal.back().precio;
+        cout<<"Marca: " <<Temporal.front().marca <<endl;
+        cout<<"Placa: " <<Temporal.front().placa <<endl;
+        cout<<"Precio: $"<<Temporal.front().precio <<endl;
+        ganancias += Temporal.front().precio;
         
         Temporal.pop();
     }
